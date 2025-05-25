@@ -843,7 +843,7 @@ async def export_txt(update: Update, context: ContextTypes.DEFAULT_TYPE):
     finally:
         # Clean up the created file after sending
         try:
-            if os.path.exists(txt_filename)):
+            if os.path.exists(txt_filename):  # Correction : ajout de parenthèses fermantes
                 os.remove(txt_filename)
         except OSError as e:
             logging.error(f"Error removing file {txt_filename}: {e}")
