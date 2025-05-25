@@ -142,12 +142,9 @@ async def grant_access(update: Update, context: ContextTypes.DEFAULT_TYPE):
     generated_code = generate_access_code(target_user_id)
 
     await update.message.reply_text(
-        f"✅ Access granted for user `{target_user_id}` for {duration_days} days.
-" # Added newline here
-        f"Expiry: {expiry_date.strftime('%Y-%m-%d %H:%M:%S')}
-" # Added newline here
-        f"Generated Code for user `{target_user_id}`: `{generated_code}`
-"
+        f"✅ Access granted for user `{target_user_id}` for {duration_days} days.\\n"
+        f"Expiry: {expiry_date.strftime('%Y-%m-%d %H:%M:%S')}\\n"
+        f"Generated Code for user `{target_user_id}`: `{generated_code}`\\n"
         "Please provide this code to the user.",
         parse_mode="Markdown"
     )
