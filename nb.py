@@ -1574,5 +1574,5 @@ def main():
     application.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_button))
     print("Bot démarré et base de données initialisée...")
     application.run_polling()
-if __name__ == "__main__":
+if name == "main":
     main()
