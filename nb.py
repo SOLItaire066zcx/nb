@@ -953,7 +953,7 @@ async def export_json(update: Update, context: ContextTypes.DEFAULT_TYPE):
     finally:
         # Clean up the created file after sending
         try:
-            if os.path.exists(json_filename)):
+            if os.path.exists(json_filename):  # Correction : ajout de parenthèses fermantes
                 os.remove(json_filename)
         except OSError as e:
             logging.error(f"Error removing file {json_filename}: {e}")
@@ -1530,7 +1530,7 @@ def main():
         ],
         states={
             RESET_CONFIRM: [MessageHandler(filters.Regex("^(OUI|NON|oui|non)$"), handle_reset_confirm)]
-        },
+        ],
         fallbacks=[
             CommandHandler("start", start),
             MessageHandler(filters.Regex("^(⬅️ Menu principal|menu principal)$"), lambda u, c: u.message.reply_text("Réinitialisation annulée.", reply_markup=get_main_menu()) and ConversationHandler.END),
